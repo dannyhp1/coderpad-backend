@@ -17,12 +17,12 @@ def execute():
   # Call executor_utils to run code.
   print('API called with code %s in %s.' % (code, language))
   result = eu.build_and_execute(code, language)
-
   print(result)
 
   return jsonify({
-    'build': 'Build results go here.',
-    'run': 'Run results go here.'
+    'build': result['build'],
+    'run': str(result['run']),
+    'error': str(result['error'])
   })
 
 if __name__ == '__main__':
