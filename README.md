@@ -1,2 +1,2 @@
-# coderpad
-Online code editor/compiler for interactive coding sessions.
+# Coderpad
+The mission of the project is to provide an interactive coding editor for developers.
