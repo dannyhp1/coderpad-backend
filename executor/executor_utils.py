@@ -30,6 +30,12 @@ BUILD_COMMANDS = {
   "c_cpp" : "g++ -o a.out"
 }
 
+EXECUTE_COMMANDS = {
+  "java" : "java",
+  "python" : "python",
+  "c_cpp" : "./"
+}
+
 def load_image():
   try:
     client.images.get(IMAGE_NAME)
@@ -41,7 +47,7 @@ def load_image():
     return
   print('Image: [%s] loaded.' % IMAGE_NAME)
 
-def build_and_exceute(code, language):
+def build_and_execute(code, language):
   result = {'build': None, 'run': None, 'error': None}
 
   source_file_parent_directory = uuid.uuid4()
@@ -87,7 +93,7 @@ def build_and_exceute(code, language):
     shutil.rmtree(source_file_host_directory)
     return result
   
-  shutil.rmtree(source-source_file_host_directory)
+  shutil.rmtree(source_file_host_directory)
   return result
 
 def make_dir(directory):
