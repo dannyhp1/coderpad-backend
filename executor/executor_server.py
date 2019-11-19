@@ -11,6 +11,7 @@ def main():
 
 @app.route('/execute', methods = ['POST'])
 def execute():
+  # Supported languages: java ('java'), python ('python'), c++ ('c_cpp').
   language = request.form['language']
   code = request.form['code']
   

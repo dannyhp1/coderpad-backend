@@ -5,11 +5,15 @@ import uuid
 import time
 from docker.errors import *
 
+# Start up docker client.
 client = docker.DockerClient()
 
+# Image uploaded to Docker; contains environment to run code for Java, Python, and C++.
 IMAGE_NAME = 'dannyhp/coderpad'
+# Code file created in temporary build directory.
 CURRENT_DIR = os.path.dirname(os.path.realpath(__file__))
 TEMP_BUILD_DIR = '%s/tmp' % CURRENT_DIR
+# Timeout for docker.
 TIMEOUT_SETTING = 'timeout -s 2 5'
 
 SOURCE_FILE_NAMES = {
@@ -36,6 +40,7 @@ EXECUTE_COMMANDS = {
   "c_cpp" : "./"
 }
 
+# Run this command separately to load the image if not initially loaded onto system.
 def load_image():
   try:
     client.images.get(IMAGE_NAME)
@@ -47,6 +52,7 @@ def load_image():
     return
   print('Image: [%s] loaded.' % IMAGE_NAME)
 
+# Builds docker container and runs the code.
 def build_and_execute(code, language):
   result = {'build': None, 'run': None, 'error': None}
 
