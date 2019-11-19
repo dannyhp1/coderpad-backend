@@ -1,0 +1,3 @@
+[submodule "coderpad-client"]
+	path = coderpad-client
+	url = git@github.com:dannyhp1/coderpad-client.git
