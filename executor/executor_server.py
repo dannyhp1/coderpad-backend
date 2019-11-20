@@ -2,8 +2,10 @@ import executor_utils as eu
 
 import json
 from flask import Flask, request, jsonify
+from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
+cors = CORS(app)
 
 @app.route('/')
 def main():
@@ -12,8 +14,10 @@ def main():
 @app.route('/execute', methods = ['POST'])
 def execute():
   # Supported languages: java ('java'), python ('python'), c++ ('c_cpp').
-  language = request.form['language']
-  code = request.form['code']
+  data = request.get_json()
+
+  language = data['language']
+  code = data['code']
   
   # Call executor_utils to run code.
   print('API called with code %s in %s.' % (code, language))
