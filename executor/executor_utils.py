@@ -93,9 +93,9 @@ def build_and_execute(code, language):
     )
     print('Execution succeeded!')
     result['run'] = log
-  except:
+  except ContainerError as e:
     print('Execution failed!')
-    result['run'] = '[!] Execution Failed - Timeout'
+    result['run'] = e.stderr
     shutil.rmtree(source_file_host_directory)
     return result
   
