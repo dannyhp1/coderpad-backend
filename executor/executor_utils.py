@@ -73,7 +73,7 @@ def build_and_execute(code, language):
       working_dir=source_file_guest_directory
     )
     print('Source built!')
-    result['build'] = 'Compiled successfully!'
+    result['build'] = True
   except ContainerError as e:
     print('Build failed!')
     result['build'] = e.stderr

@@ -22,9 +22,10 @@ def execute():
   # Call executor_utils to run code.
   print('API called with code %s in %s.' % (code, language))
   result = eu.build_and_execute(code, language)
+  print(result)
   
   return jsonify({
-    'build': str(result['build']),
+    'build': 'Compiled successfully!' if result['build'] == True else result['build'].decode('utf-8'),
     'run': str(result['run']) if result['run'] is None else result['run'].decode('utf-8'),
     'error': str(result['error'])
   })
