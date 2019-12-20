@@ -9,7 +9,7 @@ cors = CORS(app)
 
 @app.route('/')
 def main():
-  return 'Welcome to the homepage of the executor.'
+  return 'Welcome to the homepage.'
 
 @app.route('/execute', methods = ['POST'])
 def execute():
