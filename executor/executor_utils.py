@@ -9,7 +9,7 @@ from docker.errors import *
 client = docker.DockerClient()
 
 # Image uploaded to Docker; contains environment to run code for Java, Python, and C++.
-IMAGE_NAME = 'dannyhp/coderpad'
+IMAGE_NAME = 'dannyhp/coderpad_env'
 # Code file created in temporary build directory.
 CURRENT_DIR = os.path.dirname(os.path.realpath(__file__))
 TEMP_BUILD_DIR = '%s/tmp' % CURRENT_DIR
@@ -30,13 +30,13 @@ BINARY_NAMES = {
 
 BUILD_COMMANDS = {
   "java" : "javac",
-  "python" : "python -u",
+  "python" : "python3 -u",
   "c_cpp" : "g++ -o a.out"
 }
 
 EXECUTE_COMMANDS = {
   "java" : "java",
-  "python" : "python",
+  "python" : "python3",
   "c_cpp" : "./"
 }
 

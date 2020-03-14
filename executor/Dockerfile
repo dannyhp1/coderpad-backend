@@ -5,5 +5,5 @@ MAINTAINER dannyhp1
 RUN apt-get update
 RUN apt-get install -y gcc
 RUN apt-get install -y g++
-RUN apt-get install -y python
+RUN apt-get install -y python3
 RUN apt-get install -y openjdk-8-jdk
